@@ -52,7 +52,6 @@ bool Group::intersect(const Ray &r, Hit &h)
 			success = true;
 			if(hTemp.getT() < t)
 			{
-				//Fetch depth and object colour
 				t = hTemp.getT();
 				col = hTemp.getColor();
 			};

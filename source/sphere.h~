@@ -9,7 +9,8 @@
 
 class Sphere : public Object3D{
 
-  Vec3f centre;
+private:
+  Vec3f centre, color;
   float radius;
 
 public:

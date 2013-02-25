@@ -155,10 +155,17 @@ void renderDepthImage(SceneParser &scene, Image &image) {
 				//Fetch Depth
 				t = hit.getT();
 				
-				//Set colour for that depth
-				color = (_depthMax - t)/depth;
+				//If Behind Camera
+				if (t <= _depthMin)
+					color = 1.0;
+				//If Out of Field of View
+				else if (t >= _depthMax)
+					color = 0.0;
+				//If Depth in Range
+				else
+					color = (_depthMax - t)/depth;
 				
-				//Set image pixel colour
+				//Set pixel colour
 				image.SetPixel(x,y, Vec3f(color, color, color));
 			}
 			else

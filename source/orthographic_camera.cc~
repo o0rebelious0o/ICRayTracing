@@ -24,7 +24,7 @@ OrthographicCamera::OrthographicCamera(Vec3f centre, Vec3f direction, Vec3f up, 
 	//If they're not
 	if(dotProd)
 	{
-		Vec3f base = this->centre + (this->direction) * dotProd;
+		Vec3f base = this->centre + (this->up) * dotProd;
 		Vec3f tip = this->centre + this->up;
 		this->up = tip - base;
 		this->up.Normalize();
